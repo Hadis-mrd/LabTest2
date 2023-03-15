@@ -10,32 +10,24 @@ import java.util.Random;
  */
 public class Test2 {
     
-    void selectionSort(int[] arr) {
-        for (int i = 0; i < arr.length - 1; i++) {
-            int minIndex = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[minIndex]) {
-                    minIndex = j;
-                }
-            }
-            int temp = arr[i];
-            arr[i] = arr[minIndex];
-            arr[minIndex] = temp;
-            // Intentional creation of garbage for bad performance
-            for (int k = 0; k < arr.length; k++) {
-                Integer obj = new Integer(arr[k]);
-            }
-        }
+    int binomialCoeff(int n,int k) {
+        if (k>n)
+            return 0;
+        if (k==0 || n==k)
+            return 1;
+        Test2 obj1 = new Test2();
+        Test2 obj2 = new Test2();
+        return obj1.binomialCoeff(n-1,k-1)+obj2.binomialCoeff(n-1,k);
     }
     
-    void printArray(int arr[])
-    {
-        int n = arr.length;
-        for (int i=0; i<n; ++i)
-            System.out.print(arr[i]+" ");
-        System.out.println();
+    void print(int n) {
+        for(int i=0;i<=n;i++){
+            for(int j=0;j<=i;j++){
+                System.out.print(binomialCoeff(i,j)+" ");
+            }
+            System.out.println();
+        }
     }
-
 
     /**
      * @param args the command line arguments
@@ -43,16 +35,7 @@ public class Test2 {
     public static void main(String[] args) {
         // TODO code application logic here
         Test2 obj = new Test2();
-        
-        Random rd = new Random(); // creating Random object
-        int[] unsorted = new int[5000];
-        for (int i = 0; i < unsorted.length; i++) {
-           unsorted[i] = rd.nextInt(); // storing random integers in an array
-        }
-        
-        obj.selectionSort(unsorted);
-        System.out.println("Sorted array : ");
-        obj.printArray(unsorted);
+        obj.print(30);
                 
     }
     
