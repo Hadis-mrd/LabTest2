@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package test2;
-import java.util.Random;
+
 /**
  *
  * @author Hadis
